@@ -113,6 +113,12 @@ case "$1" in
 	repo_sync master
 	;;
 
+"galaxy-mini")
+	echo DEVICE=galaxys2 >> .tmp-config &&
+	repo_sync galaxy-mini &&
+	(cd device/samsung/tass && ./extract-files.sh)
+	;;
+
 *)
 	echo Usage: $0 \(device name\)
 	echo
@@ -125,6 +131,7 @@ case "$1" in
 	echo - pandaboard
 	echo - emulator
 	echo - emulator-x86
+        echo - galaxy-mini
 	exit -1
 	;;
 esac
